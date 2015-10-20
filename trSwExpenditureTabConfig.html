@@ -1,0 +1,34 @@
+<taxit:ajaxRegion id="SwExpenditureConfig_Region">
+    <sw-businesscontextselector id="SwExpenditure_context" ></sw-businesscontextselector>
+</taxit:ajaxRegion>
+
+<taxit-spacer width="5px" ></taxit-spacer>
+
+<taxit:fieldset id="SwExpenditureConfig_Config_FieldSet"
+    label="SwExpenditureConfig_Configurations">
+    <taxit:outputPanel id="SwExpenditureConfig_DataTablePanel">
+        <taxit-datatable id="SwExpenditureConfig_DataTableConfigContext" value="trSwExpenditureBean.swExpenditureConfigScreen"
+            var="rowConfigContext" selectionColumn="false">
+
+            <taxit-column width="100" label="SwExpenditureConfig" id="SwExpenditureConfig_Column_Description">
+                <taxit-multilang value="rowConfigContext['SwExpenditureConfig'].swExpenditureConfigTransCollection"
+                id="SwExpenditureConfig_Column_Description_text"
+                descriptionField="description"
+                 label=""></taxit-multilang>
+            </taxit-column>
+
+            <taxit-column width="100" label="trSwExpenditureBean.labelImport" id="SwExpenditureConfig_Column_IMPORT" rendered="trSwExpenditureBean.businessContextImport">
+                <sw-booleanyesno id="SwExpenditureConfig_Column_IMPORT_radio" fieldType="radio"
+                    value="rowConfigContext['IMP']"
+                    defaultValue="N" label="" ></sw-booleanyesno>
+            </taxit-column>
+
+            <taxit-column width="100" label="trSwExpenditureBean.labelExport" id="SwExpenditureConfig_Column_EXPORT" rendered="trSwExpenditureBean.businessContextExport">
+                <sw-booleanyesno id="SwExpenditureConfig_Column_EXPORT_radio" fieldType="radio"
+                    value="rowConfigContext['EXP']"
+                    defaultValue="N" label="" ></sw-booleanyesno>
+            </taxit-column>
+
+        </taxit-datatable>
+    </taxit:outputPanel>
+</taxit:fieldset>
